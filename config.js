@@ -24,6 +24,7 @@ exports.config = {
 					'bower_components/jquery/dist/jquery.js',
 					'bower_components/lodash/dist/lodash.js',
 					'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+          'bower_components/jshashes/hashes.js',
 
 					// angular
 					'bower_components/angular/angular.js',
@@ -55,9 +56,6 @@ exports.config = {
 	},
 
 	plugins: {
-		ng_annotate: {
-			pattern: /^app/
-		},
 		traceur: {
 			paths: /^app/,
 			options: {

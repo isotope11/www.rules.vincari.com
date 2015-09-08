@@ -1,6 +1,4 @@
-var app = angular.module('vnAutoComplete', []);
-
-app.directive('vnAutoComplete', function () {
+var app = angular.module('autoComplete', []).directive('autoComplete', function () {
 	var index = -1;
 
 	return {
@@ -235,3 +233,4 @@ app.directive('vnAutoComplete', function () {
 				</div>'
 	};
 });
+
