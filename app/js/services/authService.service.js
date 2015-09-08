@@ -6,12 +6,12 @@ angular.module('app').factory('AuthService', function() {
     var api_secret = '7cc599034bc5d8999b6a2253ad93091d';
     var content_type = "application/json"
     var token_string = content_type +",,"+url+","+date;
-    var token = this.generate_token(token_string, api_secret);
+    var token = generate_token(token_string, api_secret);
     var header = "APIAuth "+api_id+":"+token
     return header;
   }
 
-  AuthService.generate_token = function(token_string, api_secret) {
+  var generate_token = function(token_string, api_secret) {
     var SHA1 = new Hashes.SHA1;
     return SHA1.b64_hmac(token_string, api_secret);
   }
