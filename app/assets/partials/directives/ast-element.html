@@ -1,0 +1,15 @@
+<div class="ast-element">
+  <div ng-if="astIsEmpty()">
+    empty
+  </div>
+  <div ng-if="astIsIf()">
+    <ast-if data-ast="$parent.ast"></ast-if>
+  </div>
+  <div ng-if="astIsGreaterThan()">
+    <ast-greater-than data-ast="$parent.ast"></ast-greater-than>
+  </div>
+  <div ng-if="astIsUnknown()">
+    unknown:
+    {{ $parent.ast | json }}
+  </div>
+</div>

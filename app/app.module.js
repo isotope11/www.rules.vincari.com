@@ -1,5 +1,11 @@
 // Declare app level module which depends on filters, and services
-angular.module('app', ['ngSanitize', 'ngResource', 'ui.router', 'autoComplete'])
+angular.module('app', [
+  'ngSanitize',
+  'ngResource',
+  'ui.router',
+  'autoComplete',
+  'RecursionHelper'
+])
 	.constant('VERSION', '0.7.0')
 	.config(function appConfig($stateProvider, $locationProvider, $urlRouterProvider) {
 		$locationProvider.hashPrefix('!');
@@ -19,8 +25,7 @@ angular.module('app', ['ngSanitize', 'ngResource', 'ui.router', 'autoComplete'])
       views: {
         "mainView": {
           templateUrl: "partials/ast_builder.html",
-          controller: "AstCtrl",
-          controllerAs: 'ast'
+          controller: "AstCtrl"
         }
       }
     });
