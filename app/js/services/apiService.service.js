@@ -5,16 +5,19 @@ app.factory('ApiService',['$http','$log', '$q', '$timeout', 'AuthService', funct
 
   ApiService.searchProcedure = function(i) {
     var deffered = $q.defer();
-    var url = 'api/procedures?query=lap+chole&report_type=Operative&user_id=79d747ee-ba80-47be-a6ce-38a6009c198a';
+    var url = '/api/procedures?user_id=79d747ee-ba80-47be-a6ce-38a6009c198a';
     var date = new Date().toUTCString();
+    console.log(date);
 
     var req = {
       method: 'GET',
-
-      url: 'https://rules-cors.testing.complymd.com/'+url,
+      url: 'https://rules-cors.testing.complymd.com'+url,
       headers: {
+        'Access-Control-Allow-Headers': '*',
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': AuthService.get_auth_token(url, date),
+        'Date': date
       }
     }
     // probably don't need the nested promises

@@ -1,14 +1,15 @@
 #!/bin/bash
-request_uri="/api/procedures"
-key_id="cd8f0c4eb0c3c917389972f0b8c0a180"
-key_secret="7cc599034bc5d8999b6a2253ad93091d"
-date="$(LC_ALL=C date -u +"%a, %d %b %Y %X GMT")"
+request_uri="/api/procedures?user_id=79d747ee-ba80-47be-a6ce-38a6009c198a"
+api_key="80be3a4b60c3b74be59aa6a20b8caccf"
+api_secret="649e4ab643936880038d16b1f611d269"
+date="$(TZ=GMT date "+%a, %d %b %Y %T %Z")"
 content_type="application/json"
 echo $date
-sig="$(printf "$content_type,,$request_uri,$date" | openssl sha1 -binary -hmac "$key_secret" | base64)"
+sig="$(printf "$content_type,,$request_uri,$date" | openssl dgst -sha1 -binary -hmac "$api_secret" "$@" | base64)"
 echo $sig
-#curl https://app.complymd.com$request_uri \
-    #-H "Date: $date" \
-    #-H "Authorization: APIAuth $key_id:$sig" \
-    #-H "Content-Type: $content_type"
-curl --header "Authorization: APIAuth $api_key:$(echo -n "application/json,,$request_uri,$(date -u "+%a, %d %b %Y %T %Z")" | openssl dgst -sha1 -binary -hmac "$api_secret" "$@" | base64)" --header "Date: $(date -u "+%a, %d %b %Y %T %Z")" https://app.complymd.com/$request_uri
+curl -k -H "Authorization: APIAuth $api_key:$sig" \
+     -H "Date: $date" \
+     -H "Content-Type: $content_type" \
+     https://rules-cors.testing.complymd.com$request_uri
+
+# curl 'https://rules-cors.testing.complymd.com/api/procedures?user_id=79d747ee-ba80-47be-a6ce-38a6009c198a' -H 'Origin: http://www.rules.vincari.dev:3333' -H 'Accept-Encoding: gzip, deflate, sdch' -H 'Accept-Language: en-US,en;q=0.8' -H 'Authorization: APIAuth 80be3a4b60c3b74be59aa6a20b8caccf:DyNSES552WugxaIHDIxd/yGT8/I=' -H 'Accept: application/json' -H 'Referer: http://www.rules.vincari.dev:3333/' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2503.0 Safari/537.36' -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' --compressed
