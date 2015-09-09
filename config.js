@@ -31,7 +31,7 @@ exports.config = {
 					'bower_components/angular-resource/angular-resource.js',
 					'bower_components/angular-sanitize/angular-sanitize.js',
 					'bower_components/angular-ui-router/release/angular-ui-router.js',
-					'bower_components/ocModal/dist/ocModal.min.js'
+					'bower_components/angular-recursion/angular-recursion.js'
 				],
 				'test/scenarios.js': /^test(\/|\\)e2e/
 			},
