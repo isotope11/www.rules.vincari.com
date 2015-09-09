@@ -10,14 +10,13 @@ app.factory('ApiService',['$http','$log', '$q', '$timeout', 'AuthService', funct
 
     var req = {
       method: 'GET',
+
       url: 'https://app.complymd.com/'+url,
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': AuthService.get_auth_token(url, date),
-        'date': date
+        'Authorization': AuthService.get_auth_token(url, date)
       }
     }
-
+    // probably don't need the nested promises
     $http(req).
     then(function(respone){
       deffered.resolve(response);
