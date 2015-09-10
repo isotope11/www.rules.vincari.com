@@ -9,6 +9,9 @@ angular.module('app')
       },
       templateUrl: '/partials/directives/ast-element.html',
       controller: function($scope) {
+        $scope.astIsEmpty = function(){
+          return angular.equals($scope.ast, []);
+        };
         $scope.astIsIf = function(){
           return angular.equals($scope.ast[0], "if");
         };
@@ -16,8 +19,11 @@ angular.module('app')
           return angular.equals($scope.ast[0], ">");
         };
         $scope.astIsUnknown = function() {
-          return expressions.indexOf($scope.ast[0]) > -1;
-        }
+          return expressions.indexOf($scope.ast[0]) >= -1;
+        };
+        $scope.astIsArray = function() {
+          return Array.isArray($scope.ast[0]);
+        };
       },
       compile: function(element) {
         return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){

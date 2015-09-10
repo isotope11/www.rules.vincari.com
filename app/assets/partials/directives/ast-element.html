@@ -3,13 +3,15 @@
     empty
   </div>
   <div ng-if="astIsIf()">
-    <ast-if data-ast="$parent.ast"></ast-if>
+    <ast-if data-ast="ast"></ast-if>
   </div>
   <div ng-if="astIsGreaterThan()">
-    <ast-greater-than data-ast="$parent.ast"></ast-greater-than>
+    <ast-greater-than data-ast="ast"></ast-greater-than>
   </div>
   <div ng-if="astIsUnknown()">
-    unknown:
-    {{ $parent.ast | json }}
+    <div class="ast-unkown">
+      unknown:
+      {{ ast | json }}
+    </div>
   </div>
 </div>
