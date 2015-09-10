@@ -7,7 +7,7 @@ angular.module('app').controller('AstCtrl', ['$scope', function AstCtrl($scope){
                      ]],
                      ["integer", 40]
                   ]],
-                  'true',
-                  'false'
+                  true,
+                  false
                ]];
 }]);
