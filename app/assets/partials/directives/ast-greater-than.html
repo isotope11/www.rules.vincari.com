@@ -1,5 +1,9 @@
 <div class="ast-greater-than">
-<!--   inside gt
-  json: {{ ast[1] | json }} -->
-  <ast-element data-ast="ast[1]" />
+  >: {{ ast[1][0] | json }}
+  <ast-element data-ast="ast[1][0]" />
+  <!-- Why doesn't it ever get here? -->
+  <div>
+    conditional:
+    <ast-element data-ast="ast[1][1]" />
+  </div>
 </div>

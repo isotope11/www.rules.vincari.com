@@ -3,10 +3,19 @@
     empty
   </div>
   <div ng-if="astIsIf()">
-    <ast-if data-ast="ast"></ast-if>
+    <ast-if data-ast="$parent.ast"></ast-if>
   </div>
   <div ng-if="astIsGreaterThan()">
-    <ast-greater-than data-ast="ast"></ast-greater-than>
+    <ast-greater-than data-ast="$parent.ast"></ast-greater-than>
+  </div>
+  <div ng-if="astIsGet()">
+    <ast-get data-ast="$parent.ast"></ast-get>
+  </div>
+<!--   <div ng-if="astIsArray()">
+    <ast-element data-ast="$parent.ast[1]"></ast-element>
+  </div> -->
+  <div ng-if="astIsInteger()">
+    <ast-integer data-ast="$parent.ast"></ast-element>
   </div>
   <div ng-if="astIsUnknown()">
     <div class="ast-unkown">

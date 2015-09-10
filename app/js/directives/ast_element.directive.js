@@ -1,6 +1,6 @@
 angular.module('app')
   .directive("astElement", ["RecursionHelper", function(RecursionHelper){
-    var expressions = ["if", ">"];
+    var expressions = ["if", ">", "get"];
 
     return {
       restrict: "E",
@@ -18,16 +18,22 @@ angular.module('app')
         $scope.astIsGreaterThan = function(){
           return angular.equals($scope.ast[0], ">");
         };
+        $scope.astIsInteger = function(){
+          return angular.equals($scope.ast[0], "integer");
+        };
+        $scope.astIsGet = function(){
+          return angular.equals($scope.ast[0], "get");
+        };
         $scope.astIsUnknown = function() {
           return expressions.indexOf($scope.ast[0]) >= -1;
         };
         $scope.astIsArray = function() {
-          return Array.isArray($scope.ast[0]);
+          return angular.isArray($scope.ast[0]);
         };
       },
       compile: function(element) {
         return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){
-        // normal link function goes here
+        console.log(scope.ast);
         });
       }
     };

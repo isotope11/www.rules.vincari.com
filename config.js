@@ -56,12 +56,12 @@ exports.config = {
 	},
 
 	plugins: {
-		traceur: {
-			paths: /^app/,
-			options: {
-				experimental: true
-			}
-		},
+		// traceur: {
+		// 	paths: /^app/,
+		// 	options: {
+		// 		experimental: true
+		// 	}
+		// },
 		autoprefixer: {
 			browsers: [
 				"last 2 version",
