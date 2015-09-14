@@ -1,6 +1,9 @@
-<div class="ast-document">
-  document: {{ ast[1] | json }}
-  <div ng-repeat="child in ast[1]">
-    <ast-element data-ast="child" />
+<div class="ast-document panel">
+  <div class="panel-body">
+  <strong>Document</strong>
+  {{ ast[1] | json }}
+    <div ng-repeat="child in ast[1]">
+      <ast-element data-ast="child" />
+    </div>
   </div>
 </div>
