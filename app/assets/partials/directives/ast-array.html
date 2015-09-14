@@ -1,6 +1,7 @@
 <div class="ast-array">
-  array: {{ ast[1] | json }}
-  <div ng-repeat="child in ast[1]">
-    <ast-element data-ast="child" />
-  </div>
+  [
+  <span ng-repeat="child in ast[1]">
+    <ast-element data-ast="child"></ast-element><span ng-if="!$last">,</span>
+  </span>
+  ]
 </div>

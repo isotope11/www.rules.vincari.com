@@ -1,6 +1,7 @@
 angular.module('app')
   .directive("astElement", ["RecursionHelper", function(RecursionHelper){
     var expressions = ["if", ">", "get", "document","integer", "[]"];
+    var primitives = ["string", "boolean"];
 
     return {
       restrict: "E",
@@ -43,6 +44,9 @@ angular.module('app')
           return false;
           // return expressions.indexOf($scope.ast[0]) <= -1;
         };
+        $scope.astIsPrimitive = function() {
+          return primitives.indexOf(typeof $scope.ast) > -1;
+        }
       },
       compile: function(element) {
         return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){

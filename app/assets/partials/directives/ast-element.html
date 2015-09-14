@@ -1,35 +1,40 @@
-<div class="ast-element">
-  <div ng-if="astIsEmpty()">
-    empty
-  </div>
-  <div ng-if="astIsIf()">
-    <ast-if data-ast="$parent.ast"></ast-if>
-  </div>
-  <div ng-if="astIsGreaterThan()">
-    <ast-greater-than data-ast="$parent.ast"></ast-greater-than>
-  </div>
-  <div ng-if="astIsGet()">
-    <ast-get data-ast="$parent.ast"></ast-get>
-  </div>
-  <div ng-if="astIsInteger()">
-    <ast-integer data-ast="$parent.ast"></ast-element>
-  </div>
-  <div ng-if="astIsBool()">
-    <ast-bool data-ast="$parent.ast"></ast-bool>
-  </div>
-  <div ng-if="astIsDocument()">
-    <ast-document data-ast="$parent.ast"></ast-document>
-  </div>
-  <div ng-if="astIsArray()">
-    <ast-array data-ast="$parent.ast"></ast-array>
-  </div>
-  <div ng-if="astIsString()">
-    String: {{ ast | json }}
-  </div>
-  <div ng-if="astIsUnknown()">
-    <div class="ast-unkown">
-      unknown:
-      {{ ast | json }}
+<div class="ast-element panel panel-default" ng-if="!astIsPrimitive()">
+  <div class="panel-body">
+    <div ng-if="astIsEmpty()">
+      empty
+    </div>
+    <div ng-if="astIsIf()">
+      <ast-if data-ast="$parent.ast"></ast-if>
+    </div>
+    <div ng-if="astIsGreaterThan()">
+      <ast-greater-than data-ast="$parent.ast"></ast-greater-than>
+    </div>
+    <div ng-if="astIsGet()">
+      <ast-get data-ast="$parent.ast"></ast-get>
+    </div>
+    <div ng-if="astIsInteger()">
+      <ast-integer data-ast="$parent.ast"></ast-element>
+    </div>
+    <div ng-if="astIsDocument()">
+      <ast-document data-ast="$parent.ast"></ast-document>
+    </div>
+    <div ng-if="astIsArray()">
+      <ast-array data-ast="$parent.ast"></ast-array>
+    </div>
+    <div ng-if="astIsUnknown()">
+      <div class="ast-unkown">
+        unknown:
+        {{ ast | json }}
+      </div>
     </div>
   </div>
 </div>
+
+<span class="ast-element" ng-if="astIsPrimitive()">
+  <span ng-if="astIsString()">
+    "{{ ast }}"
+  </span>
+  <span ng-if="astIsBool()">
+    <ast-bool data-ast="$parent.ast"></ast-bool>
+  </span>
+</span>
