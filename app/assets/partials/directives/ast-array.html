@@ -1,4 +1,5 @@
 <div class="ast-array">
+  <a ng-click="$parent.deleteBlock()">X</a>
   [
   <span ng-repeat="child in ast[1]">
     <ast-element data-ast="child"></ast-element><span ng-if="!$last">,</span>

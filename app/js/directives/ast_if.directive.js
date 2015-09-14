@@ -5,6 +5,7 @@ angular.module('app')
       scope: {
         ast: "="
       },
-      templateUrl: '/partials/directives/ast-if.html'
+      templateUrl: '/partials/directives/ast-if.html',
+      controller: function($scope){}
     };
   }]);

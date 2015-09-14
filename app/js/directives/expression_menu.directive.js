@@ -3,7 +3,7 @@ angular.module('app')
     return {
       restrict: 'A',
       link: function(scope, elem, attrs) {
-        $('div.dropdown').dropdown();
+        $('div.dropdown-toggle').dropdown();
       }
     };
 }])

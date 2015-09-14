@@ -10,6 +10,40 @@ angular.module('app')
       },
       templateUrl: '/partials/directives/ast-element.html',
       controller: function($scope) {
+        $scope.conditionalArray = ['if', '>'];
+        $scope.valuesArray = ['get', 'document', 'integer', 'boolean', 'string', '[]'];
+
+        $scope.deleteBlock = function(){
+          console.log('test');
+          $scope.ast = [];
+        }
+        $scope.createBlock = function(type) {
+          console.log(type);
+          if(type === 'if'){
+            $scope.ast = ["if", [[],[],[]]];
+          }
+          if(type ==='boolean'){
+            $scope.ast = true
+          }
+          if(type === '>'){
+            $scope.ast = ['>', [[],[]]];
+          }
+          if(type === 'get'){
+            $scope.ast = ['get', [[],[]]];
+          }
+          if(type === 'integer'){
+            $scope.ast = ['integer', 0];
+          }
+          if(type === 'string'){
+            $scope.ast = '';
+          }
+          if(type === 'document'){
+            $scope.ast = ['document', [[]]];
+          }
+          if(type === '[]'){
+            $scope.ast = ['[]', []];
+          }
+        };
         $scope.astIsEmpty = function(){
           return angular.equals($scope.ast, []);
         };

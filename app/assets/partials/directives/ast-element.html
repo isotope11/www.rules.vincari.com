@@ -2,6 +2,17 @@
   <div class="panel-body">
     <div ng-if="astIsEmpty()">
       empty
+      <div class="dropdown" expression-menu>
+        <button class="btn btn-default" data-toggle="dropdown">
+          Expressions
+        </button>
+        <ul class="dropdown-menu">
+          <li class="dropdown-header">Conditionals</li>
+          <li><a ng-click="createBlock(con)" ng-repeat="con in conditionalArray">{{con}}</a>
+          <li class="dropdown-header">Values</li>
+          <li><a ng-click="createBlock(val)" ng-repeat="val in valuesArray">{{val}}</a>
+        </ul>
+      </div>
     </div>
     <div ng-if="astIsIf()">
       <ast-if data-ast="$parent.ast"></ast-if>
