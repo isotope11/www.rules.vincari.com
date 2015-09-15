@@ -14,11 +14,9 @@ angular.module('app')
         $scope.valuesArray = ['get', 'document', 'integer', 'boolean', 'string', '[]'];
 
         $scope.deleteBlock = function(){
-          console.log('test');
           $scope.ast = [];
         }
         $scope.createBlock = function(type) {
-          console.log(type);
           if(type === 'if'){
             $scope.ast = ["if", [[],[],[]]];
           }
@@ -35,7 +33,7 @@ angular.module('app')
             $scope.ast = ['integer', 0];
           }
           if(type === 'string'){
-            $scope.ast = '';
+            $scope.ast = ['string', ''];
           }
           if(type === 'document'){
             $scope.ast = ['document', [[]]];
@@ -70,8 +68,9 @@ angular.module('app')
           return angular.equals($scope.ast[0], "[]");
         };
         $scope.astIsString = function() {
-          return (typeof $scope.ast[0] === 'string' &&
-            expressions.indexOf($scope.ast[0]) <= -1);
+          return angular.equals($scope.ast[0], "string");
+          // return (typeof $scope.ast[0] === 'string' &&
+          //   expressions.indexOf($scope.ast[0]) <= -1);
         };
         $scope.astIsUnknown = function() {
           // not buggy but output is verbose from RecursionsHelper compile.

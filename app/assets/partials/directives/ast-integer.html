@@ -1,6 +1,7 @@
 <div class="ast-integer panel">
   <a ng-click="$parent.deleteBlock()">X</a>
   <div class="panel-body">
+  {{ ast | json }}
   <strong>integer</strong>
   <input type='number' ng-model="ast[1]"></input>
 </div>
