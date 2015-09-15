@@ -1,0 +1,9 @@
+<div class="ast-string panel">
+  <a ng-click="$parent.deleteBlock()">X</a>
+  <div class="panel-body">
+    <strong>String</strong>
+    {{ ast | json  }}
+    <input ng-model="currentText" ng-change="updateText()"></input>
+  </div>
+</div>
+

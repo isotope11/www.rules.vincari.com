@@ -3,7 +3,7 @@
   <div class="panel-body">
     <strong>Bool</strong>
     {{ ast | json }}</div>
-    <select ng-model="ast">
+    <select ng-model="selectedItem" ng-change="update()">
       <option value="true">True</option>
       <option value="false">False</option>
     </select>

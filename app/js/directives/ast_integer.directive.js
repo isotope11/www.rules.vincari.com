@@ -7,10 +7,6 @@ angular.module('app')
       },
       templateUrl: '/partials/directives/ast-integer.html',
       controller: function($scope){
-        $scope.innerInteger = $scope.ast[1];
-        $scope.updateInteger = function(){
-          $scope.ast[1] = $scope.innerInteger;
-        }
       }
     };
   }]);

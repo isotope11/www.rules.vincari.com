@@ -43,7 +43,7 @@
 
 <span class="ast-element" ng-if="astIsPrimitive()">
   <span ng-if="astIsString()">
-    "{{ ast }}"
+    <ast-string data-ast="$parent.ast"></ast-string>
   </span>
   <span ng-if="astIsBool()">
     <ast-bool data-ast="$parent.ast"></ast-bool>
