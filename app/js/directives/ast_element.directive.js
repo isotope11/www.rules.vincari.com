@@ -69,8 +69,6 @@ angular.module('app')
         };
         $scope.astIsString = function() {
           return angular.equals($scope.ast[0], "string");
-          // return (typeof $scope.ast[0] === 'string' &&
-          //   expressions.indexOf($scope.ast[0]) <= -1);
         };
         $scope.astIsUnknown = function() {
           // not buggy but output is verbose from RecursionsHelper compile.
